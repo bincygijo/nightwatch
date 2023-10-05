@@ -1,0 +1,65 @@
+{
+  "name": "commercebuild-uiautomation-project",
+  "version": "3.0.0",
+  "description": "nightwatch-api plugin project",
+  "main": "index.js",
+  "engines": {
+    "node": "> 16.6.1"
+  },
+  "author": "Commercebuild",
+  "license": "",
+  "scripts": {
+    "test:smoke": "cross-env NIGHTWATCH_ENV=chromeHeadless npm test",
+    "test:chrome": "cross-env NIGHTWATCH_ENV=chrome npm test",
+    "test:firefox": "cross-env NIGHTWATCH_ENV=firefox npm test",
+    "test:edge": "cross-env NIGHTWATCH_ENV=edge npm test",
+    "test:ie": "cross-env NIGHTWATCH_ENV=ie npm test",
+    "test": "cucumber-js src/frontend/features/*.feature --tags @smoke --require-module babel-core/register --require cucumber.conf.js --require src/frontend/stepDefinitions --format json:src/reports/cucumber.json --format node_modules/cucumber-pretty",
+    "test:setup": "babel-node src/helper/test/server.js",
+    "test:run": "cucumber-js  src/frontend/features/*.feature --require src/frontend/stepDefinitions --require-module babel-core/register --require src/helper/test/support  --format node_modules/cucumber-pretty",
+    "lint": "eslint src",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "import/no-extraneous-dependencies": [
+    "error",
+    {
+      "devDependencies": [
+        "src/frontend/**"
+      ],
+      "optionalDependencies": false,
+      "peerDependencies": false
+    }
+  ],
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "chromedriver": "^94.0.0",
+    "cross-env": "^5.2.0",
+    "cucumber": "^5.1.0",
+    "cucumber-html-reporter": "^5.4.0",
+    "cucumber-pretty": "^1.5.2",
+    "eslint": "7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "16.0.3",
+    "eslint-plugin-cucumber": "1.4.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-no-only-tests": "2.6.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "5.1.0",
+    "eslint-plugin-standard": "3.0.1",
+    "geckodriver": "^1.16.2",
+    "iedriver": "^3.14.1",
+    "mkdirp": "^0.5.1",
+    "nightwatch": "^1.7.8",
+    "nightwatch-api": "^3.0.2",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
+    "selenium-server-standalone-jar": "^3.141.5"
+  },
+  "dependencies": {
+    "nodejs": "0.0.0"
+  }
+}

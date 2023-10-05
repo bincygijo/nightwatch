@@ -1,0 +1,75 @@
+{
+  "extends": [
+    "airbnb/base",
+    "prettier"
+  ],
+  "env": {
+    "browser": false,
+    "node": true,
+    "mocha": true,
+    "es6": true,
+    "jest": true
+  },
+  "globals": {
+    "describe": true,
+    "it": true
+  },
+  "rules": {
+    "complexity": [
+      "error",
+      5
+    ],
+    "comma-dangle": 0,
+    "linebreak-style": 0,
+    "no-console": 0,
+    "no-use-before-define": 0,
+    "brace-style": [
+      "error",
+      "1tbs"
+    ],
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": [
+          "function",
+          "class",
+          "block-like"
+        ],
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": [
+          "cjs-export",
+          "class"
+        ]
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "src/frontend/**"
+        ],
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "printWidth": 80,
+        "endOfLine": "auto"
+
+      }
+    ]
+  },
+  "plugins": [
+    "cucumber",
+    "prettier"
+  ]
+}
